@@ -1,1 +1,2 @@
-# TickTackToe-Inher-CPP
+# Cpp-assignment
+Task C++ course
