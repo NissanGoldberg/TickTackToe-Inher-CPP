@@ -11,9 +11,9 @@
 #include "Champion.h"
 
 void printResults(const TicTacToe& game) {
-	// cout << endl << "The final board is " << endl << game.board();
-	// cout << "And the winner is " << game.winner().name() 
-	//      << ", playing as " << game.winner().getChar() << "!" << endl;
+	cout << endl << "The final board is " << endl << game.board();
+	cout << "And the winner is " << game.winner().name() 
+	     << ", playing as " << game.winner().getChar() << "!" << endl;
 }
 
 void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
@@ -21,11 +21,11 @@ void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 	printResults(game);
 }
 
-// void playAndPrintWinner(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
-// 	game.play(xPlayer, oPlayer);
-// 	cout << "The winner is " << game.winner().name() 
-// 	     << ", playing as " << game.winner().getChar() << "!" << endl;
-// }
+void playAndPrintWinner(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
+	game.play(xPlayer, oPlayer);
+	cout << "The winner is " << game.winner().name() 
+	     << ", playing as " << game.winner().getChar() << "!" << endl;
+}
 
 
 int main() {
@@ -97,9 +97,9 @@ int main() {
 	*/
 
 
-	// Champion champion;
-	// playAndPrintWinner(game, champion, player1);
-	// 	// The winner is <your name>, playing as X!
+	Champion champion;
+	playAndPrintWinner(game, champion, player1);
+		// The winner is <your name>, playing as X!
 	// playAndPrintWinner(game, player1, champion);
 	// 	// The winner is <your name>, playing as O!
 	// playAndPrintWinner(game, champion, player2);
