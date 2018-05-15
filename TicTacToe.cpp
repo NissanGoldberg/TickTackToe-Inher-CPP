@@ -4,10 +4,9 @@ TicTacToe::TicTacToe(int size):table_size(size),play_board(size){
 }
 
 bool TicTacToe::checkPoint(const Coordinate& coord) const{
-    if (coord.x==0 && coord.y==0)
-        if (play_board[coord]!='.')
+    if (play_board[coord]!='.')
             return false;
-        
+    
     return true;
 }
 
@@ -21,28 +20,57 @@ void TicTacToe::play(Player& p1,Player& p2){
 
     bool win = false;
     char charOfWinner = '.';
+    int i = 0; 
 
-    for(int i = 0; i < table_size*table_size/2 && !win; ++i){
-        Coordinate coord = p1.play(play_board);
-        if(checkPoint(coord)){
-            play_board[coord] = 'X';
+    while(i<=table_size*table_size && !win){
+        try{
+            Coordinate coord = p1.play(play_board);
+            if(checkPoint(coord)){
+                play_board[coord] = p1.getChar();
+                ++i;
+            }
+            else{
+                win = true;
+                charOfWinner = p2.getChar();
+            }
+        }catch(...){
+            win = true;
+            charOfWinner = p2.getChar();
         }
 
-        win = checkWinner(coord,'X');
+        win = checkWinner(coord,p1.getChar());
         if(win)
-            charOfWinner = 'X';
+            charOfWinner = p1.getChar();
 
-        coord = p2.play(play_board);
-        if(checkPoint(coord)){
-            play_board[coord] = 'O';
+        if(i != table_size*table_size ){
+            try{
+                coord = p2.play(play_board);
+                if(checkPoint(coord)){
+                    play_board[coord] = p2.getChar();
+                    ++i;
+                }
+                else{
+                    win = true;
+                    charOfWinner = p1.getChar();
+                }
+            }catch(...){
+                win = true;
+                charOfWinner = p1.getChar();
+            }
+
+            win = checkWinner(coord,p2.getChar());
+            if(win)
+                charOfWinner = p2.getChar();
+        
         }
-
-        win = checkWinner(coord,'O');
-        if(win)
-            charOfWinner = 'O';
     }
 
-    if(charOfWinner == 'X')
-        // winner = p1;
+    if(charOfWinner == p1.getChar())
+        winner = p1.name();
+    if(charOfWinner == p2.getChar())
+        winner = p2.name();
+    if(charOfWinner == '.')
+        winner = p2.name();
+
     
 }
