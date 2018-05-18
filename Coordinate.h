@@ -14,6 +14,10 @@ struct Coordinate{
 	uint y;
 
 	Coordinate(uint new_x, uint new_y):x(new_x),y(new_y){}
+	void operator=(Coordinate other){
+		x = other.x;
+		y = other.y;
+	}
 };
 
 

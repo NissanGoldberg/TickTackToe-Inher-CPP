@@ -1,10 +1,3 @@
-//============================================================================
-// Name        : Exercise.cpp
-// Author      : Moshe and Nissan
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
 #include "TicTacToe.h"
 #include "DummyPlayers.h"
 
@@ -89,7 +82,7 @@ int main() {
 	playAndPrintResults(game, player4, player2);  
 	/*
 		The final board is 
-		X...
+		....
 		....
 		....
 		....
@@ -100,20 +93,20 @@ int main() {
 	Champion champion;
 	playAndPrintWinner(game, champion, player1);
 		// The winner is <your name>, playing as X!
-	// playAndPrintWinner(game, player1, champion);
-	// 	// The winner is <your name>, playing as O!
-	// playAndPrintWinner(game, champion, player2);
-	// 	// The winner is <your name>, playing as X!
-	// playAndPrintWinner(game, player2, champion);
-	// 	// The winner is <your name>, playing as O!
-	// playAndPrintWinner(game, champion, player3);
-	// 	// The winner is <your name>, playing as X!
-	// playAndPrintWinner(game, player3, champion);
-	// 	// The winner is <your name>, playing as O!
-	// playAndPrintWinner(game, champion, player4);
-	// 	// The winner is <your name>, playing as X!
-	// playAndPrintWinner(game, player4, champion);
-	// 	// The winner is <your name>, playing as O!
+	playAndPrintWinner(game, player1, champion);
+		// The winner is <your name>, playing as O!
+	playAndPrintWinner(game, champion, player2);
+		// The winner is <your name>, playing as X!
+	playAndPrintWinner(game, player2, champion);
+		// The winner is <your name>, playing as O!
+	playAndPrintWinner(game, champion, player3);
+		// The winner is <your name>, playing as X!
+	playAndPrintWinner(game, player3, champion);
+		// The winner is <your name>, playing as O!
+	playAndPrintWinner(game, champion, player4);
+		// The winner is <your name>, playing as X!
+	playAndPrintWinner(game, player4, champion);
+		// The winner is <your name>, playing as O!
 
 	return 0;
 }

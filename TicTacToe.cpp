@@ -1,4 +1,5 @@
 #include "TicTacToe.h"
+#include "Champion.h"
 
 TicTacToe::TicTacToe(int size):table_size(size),play_board(size){
 }
@@ -15,14 +16,28 @@ bool TicTacToe::checkWinner(const Coordinate& coord,const char c) const{
     return true;
 }
 
+// Player& TicTacToe::winner() const{
+//     if (winnerStr.compare("Nissan and Moshe")==0)
+//                 return Champion;
 
+
+// }
+Player& TicTacToe::winner() const{
+    //TODO Moshe: chech how to return object if it can't be const
+    //and cant be on stack
+    Champion* c= new Champion();
+    return *c;
+
+}
 void TicTacToe::play(Player& p1,Player& p2){
 
     bool win = false;
     char charOfWinner = '.';
     int i = 0; 
 
+    // // for(i < (int)ceil(table_size*table_size/2.0) && !win; ++i){
     while(i<=table_size*table_size && !win){
+        Coordinate coord={0,0};
         try{
             Coordinate coord = p1.play(play_board);
             if(checkPoint(coord)){
@@ -66,11 +81,11 @@ void TicTacToe::play(Player& p1,Player& p2){
     }
 
     if(charOfWinner == p1.getChar())
-        winner = p1.name();
+        winnerStr = p1.name();
     if(charOfWinner == p2.getChar())
-        winner = p2.name();
+        winnerStr = p2.name();
     if(charOfWinner == '.')
-        winner = p2.name();
+        winnerStr = p2.name();
 
     
 }
